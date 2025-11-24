@@ -2,17 +2,6 @@ import { createRoot } from "react-dom/client";
 
 import { restaurants } from "./constants/mock";
 
-// TODO: turn into a component
-function renderRatingStars(rating) {
-  const symbol = "⭐";
-  let str = "";
-  for (let i = 0; i < rating; i++) {
-    str += symbol;
-  }
-  return <>{str}</>;
-}
-
-// TODO: break code into separate components
 createRoot(document.getElementById("root")).render(
   <main>
     { // RESTAURANT
@@ -48,7 +37,7 @@ createRoot(document.getElementById("root")).render(
               { // REVIEW
                 rest.reviews.map(review => (
                   <li key={review.id}>
-                    <p><b>{review.user}</b> {renderRatingStars(review.rating)}</p>
+                    <p><b>{review.user}</b> {"⭐".repeat(review.rating)}</p>
                     <p>{review.text}</p>
                   </li>
                 ))
