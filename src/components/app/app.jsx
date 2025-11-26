@@ -5,10 +5,8 @@ import { restaurants } from "../../constants/mock";
 
 export const App = () => {
   return (
-    <>
-      <AppLayout>
-        <RestaurantView restaurants={restaurants} />
-      </AppLayout>
-    </>
+    <AppLayout>
+      <RestaurantView restaurants={restaurants} />
+    </AppLayout>
   );
 };

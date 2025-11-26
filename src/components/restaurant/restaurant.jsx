@@ -7,7 +7,12 @@ export const Restaurant = ({ name, dishes }) => {
       <ul>
         {dishes.map(({ id, name, price, ingredients }) => (
           <li>
-            <Dish name={name} price={price} ingredients={ingredients} />
+            <Dish
+              key={id}
+              name={name}
+              price={price}
+              ingredients={ingredients}
+            />
           </li>
         ))}
       </ul>
