@@ -6,13 +6,8 @@ export const Restaurant = ({ name, dishes }) => {
       <h2>{name}</h2>
       <ul>
         {dishes.map(({ id, name, price, ingredients }) => (
-          <li>
-            <Dish
-              key={id}
-              name={name}
-              price={price}
-              ingredients={ingredients}
-            />
+          <li key={id}>
+            <Dish name={name} price={price} ingredients={ingredients} />
           </li>
         ))}
       </ul>

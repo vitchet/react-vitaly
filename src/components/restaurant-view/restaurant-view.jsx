@@ -4,8 +4,8 @@ export const RestaurantView = ({ restaurants }) => {
   return (
     <ul>
       {restaurants.map(({ id, name, menu }) => (
-        <li>
-          <Restaurant key={id} name={name} dishes={menu} />
+        <li key={id}>
+          <Restaurant name={name} dishes={menu} />
         </li>
       ))}
     </ul>
