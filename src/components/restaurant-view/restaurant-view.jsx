@@ -1,13 +1,22 @@
 import { Restaurant } from "../restaurant/restaurant";
+import { useSelection } from "./use-selection";
 
 export const RestaurantView = ({ restaurants }) => {
+  const { selectedItem, select } = useSelection(restaurants);
+
   return (
-    <ul>
-      {restaurants.map(({ id, name, menu, reviews }) => (
-        <li key={id}>
-          <Restaurant name={name} dishes={menu} reviews={reviews} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul>
+        {restaurants.map((restaurant) => {
+          const { id, name } = restaurant;
+          return (
+            <li key={id}>
+              <button onClick={() => select(restaurant)}>{name}</button>
+            </li>
+          );
+        })}
+      </ul>
+      <Restaurant restaurant={selectedItem} />
+    </>
   );
 };

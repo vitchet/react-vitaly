@@ -1,12 +1,14 @@
 import { DishList } from "../dish-list/dish-list";
 import { ReviewList } from "../review-list/review-list";
 
-export const Restaurant = ({ name, dishes, reviews }) => {
+export const Restaurant = ({ restaurant }) => {
+  const { name, menu, reviews } = restaurant;
+
   return (
     <>
       <h2>{name}</h2>
       <h3>Menu</h3>
-      <DishList dishes={dishes} />
+      <DishList dishes={menu} />
       <h3>Reviews</h3>
       <ReviewList reviews={reviews} />
     </>

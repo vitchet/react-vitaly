@@ -1,7 +1,7 @@
 import { Review } from "../review/review";
 
 export const ReviewList = ({ reviews }) => {
-  return reviews.length > 0 ? (
+  return reviews?.length > 0 ? (
     <ul>
       {reviews.map(({ id, user, text, rating }) => (
         <li key={id}>

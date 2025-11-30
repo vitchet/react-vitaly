@@ -1,7 +1,7 @@
 import { Dish } from "../dish/dish";
 
 export const DishList = ({ dishes }) => {
-  return dishes.length > 0 ? (
+  return dishes?.length > 0 ? (
     <ul>
       {dishes.map(({ id, name, price, ingredients }) => (
         <li key={id}>
