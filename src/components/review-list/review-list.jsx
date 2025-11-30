@@ -1,7 +1,7 @@
 import { Review } from "../review/review";
 
 export const ReviewList = ({ reviews }) => {
-  return (
+  return reviews.length > 0 ? (
     <ul>
       {reviews.map(({ id, user, text, rating }) => (
         <li key={id}>
@@ -9,5 +9,7 @@ export const ReviewList = ({ reviews }) => {
         </li>
       ))}
     </ul>
+  ) : (
+    <p>There are no reviews yet.</p>
   );
 };
