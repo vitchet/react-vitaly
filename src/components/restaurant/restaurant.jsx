@@ -1,6 +1,5 @@
 import { DishList } from "../dish-list/dish-list";
 import { ReviewList } from "../review-list/review-list";
-import { Review } from "../review/review";
 
 export const Restaurant = ({ name, dishes, reviews }) => {
   return (
