@@ -5,12 +5,8 @@ export const useSelection = (items) => {
     items?.length ? items[0] : null
   );
 
-  const select = (item) => {
-    setSelectedItem(item);
-  };
-
   return {
     selectedItem,
-    select,
+    setSelectedItem,
   };
 };
