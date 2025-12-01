@@ -2,7 +2,7 @@ import { Restaurant } from "../restaurant/restaurant";
 import { useSelection } from "./use-selection";
 
 export const RestaurantView = ({ restaurants }) => {
-  const { selectedItem, select } = useSelection(restaurants);
+  const { selectedItem, setSelectedItem } = useSelection(restaurants);
 
   return (
     <>
@@ -11,7 +11,9 @@ export const RestaurantView = ({ restaurants }) => {
           const { id, name } = restaurant;
           return (
             <li key={id}>
-              <button onClick={() => select(restaurant)}>{name}</button>
+              <button onClick={() => setSelectedItem(restaurant)}>
+                {name}
+              </button>
             </li>
           );
         })}
