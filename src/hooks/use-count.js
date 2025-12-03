@@ -20,10 +20,8 @@ const Action = Object.freeze({
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case Action.INCREMENT: {
+    case Action.INCREMENT:
       return { count: Math.min(state.count + 1, payload) };
-    }
-
     case Action.DECREMENT:
       return { count: Math.max(state.count - 1, payload) };
     case Action.RESET:
