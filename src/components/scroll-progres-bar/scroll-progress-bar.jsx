@@ -15,7 +15,8 @@ export const ScrollProgressBar = () => {
   const handleScroll = useCallback(() => {
     const maxScroll =
       document.documentElement.scrollHeight - window.innerHeight;
-    setSize((window.scrollY / maxScroll) * 100);
+    const newSize = (window.scrollY / maxScroll) * 100;
+    setSize(newSize);
   }, []);
 
   useEffect(() => {
