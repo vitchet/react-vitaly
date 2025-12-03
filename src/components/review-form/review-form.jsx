@@ -1,7 +1,21 @@
+import { useCount } from "../../hooks/use-count";
 import { useForm } from "./use-form";
 
+import { Counter } from "../counter/counter";
+
 export const ReviewForm = () => {
-  const { text, userName, setText, setUserName, clear } = useForm();
+  const { text, userName, setText, setUserName, clear: clearForm } = useForm();
+  const {
+    count: rating,
+    increment: incrementRating,
+    decrement: decrementRating,
+    reset: resetRating,
+  } = useCount();
+
+  const clear = () => {
+    clearForm();
+    resetRating();
+  };
 
   return (
     <>
@@ -19,6 +33,14 @@ export const ReviewForm = () => {
             placeholder="Right your review..."
             value={text}
             onChange={(e) => setText(e.target.value)}
+          />
+        </p>
+        <p>
+          <span>Rating: </span>
+          <Counter
+            count={rating}
+            increment={incrementRating}
+            decrement={decrementRating}
           />
         </p>
         <button type="button" value={text} onClick={clear}>

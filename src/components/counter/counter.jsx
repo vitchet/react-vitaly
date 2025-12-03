@@ -1,9 +1,13 @@
 export const Counter = ({ count, increment, decrement }) => {
   return (
     <>
-      <button onClick={increment}>+</button>
+      <button type="button" onClick={increment}>
+        +
+      </button>
       <span> {count} </span>
-      <button onClick={decrement}>-</button>
+      <button type="button" onClick={decrement}>
+        -
+      </button>
     </>
   );
 };
