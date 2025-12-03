@@ -12,7 +12,6 @@ export const Restaurant = ({ restaurant }) => {
       <DishList dishes={menu} />
       <h3>Reviews</h3>
       <ReviewList reviews={reviews} />
-      <br />
       <ReviewForm />
     </>
   );
