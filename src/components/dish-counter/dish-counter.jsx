@@ -1,4 +1,4 @@
-import { useCount } from "./use-count";
+import { useCount } from "../../hooks/use-count";
 
 export const DishCounter = () => {
   const { count, increment, decrement } = useCount();

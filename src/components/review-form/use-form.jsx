@@ -27,12 +27,17 @@ const reducer = (state, { type, payload }) => {
 export const useForm = () => {
   const [state, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
 
-  const setText = (text) => dispatch({ type: Action.SET_TEXT, payload: text });
+  const setText = (text) => {
+    dispatch({ type: Action.SET_TEXT, payload: text });
+  };
 
-  const setUserName = (userName) =>
+  const setUserName = (userName) => {
     dispatch({ type: Action.SET_USER_NAME, payload: userName });
+  };
 
-  const clear = () => dispatch({ type: Action.CLEAR });
+  const clear = () => {
+    dispatch({ type: Action.CLEAR });
+  };
 
   return {
     text: state.text,
