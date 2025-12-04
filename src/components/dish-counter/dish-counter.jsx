@@ -1,13 +1,8 @@
-import { useCount } from "./use-count";
+import { useCount } from "../../hooks/use-count";
+import { Counter } from "../counter/counter";
 
 export const DishCounter = () => {
   const { count, increment, decrement } = useCount();
 
-  return (
-    <>
-      <button onClick={increment}>+</button>
-      <span> {count} </span>
-      <button onClick={decrement}>-</button>
-    </>
-  );
+  return <Counter count={count} increment={increment} decrement={decrement} />;
 };
