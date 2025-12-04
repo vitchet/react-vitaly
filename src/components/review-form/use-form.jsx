@@ -7,11 +7,6 @@ const DEFAULT_FORM_VALUE = {
   text: "",
 };
 
-const getAllDefaultValues = (...additionalValues) => ({
-  ...DEFAULT_FORM_VALUE,
-  ...additionalValues,
-});
-
 const Action = Object.freeze({
   SET_TEXT: Symbol("st"),
   SET_USER_NAME: Symbol("sun"),
