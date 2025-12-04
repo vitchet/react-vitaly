@@ -6,20 +6,20 @@ import { useState } from "react";
 export const ScrollProgressBar = () => {
   const [size, setSize] = useState(0);
 
-  let styles = {
+  const styles = {
     width: `${size}%`,
     height: "100%",
     backgroundColor: "red",
   };
 
-  const handleScroll = useCallback(() => {
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const newSize = (window.scrollY / maxScroll) * 100;
-    setSize(newSize);
-  }, []);
-
   useEffect(() => {
+    const handleScroll = () => {
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const newSize = (window.scrollY / maxScroll) * 100;
+      setSize(newSize);
+    };
+
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
