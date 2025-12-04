@@ -1,21 +1,18 @@
-import { useCount } from "../../hooks/use-count";
 import { useForm } from "./use-form";
 
 import { Counter } from "../counter/counter";
 
 export const ReviewForm = () => {
-  const { text, userName, setText, setUserName, clear: clearForm } = useForm();
   const {
-    count: rating,
-    increment: incrementRating,
-    decrement: decrementRating,
-    reset: resetRating,
-  } = useCount();
-
-  const clear = () => {
-    clearForm();
-    resetRating();
-  };
+    text,
+    userName,
+    rating,
+    setText,
+    setUserName,
+    incrementRating,
+    decrementRating,
+    clear,
+  } = useForm();
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>

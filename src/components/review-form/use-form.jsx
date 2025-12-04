@@ -1,13 +1,22 @@
 import { useReducer } from "react";
 
+import { useCount } from "../../hooks/use-count";
+
 const DEFAULT_FORM_VALUE = {
   userName: "",
   text: "",
 };
 
+const getAllDefaultValues = (...additionalValues) => ({
+  ...DEFAULT_FORM_VALUE,
+  ...additionalValues,
+});
+
 const Action = Object.freeze({
   SET_TEXT: Symbol("st"),
   SET_USER_NAME: Symbol("sun"),
+  INCREMENT_RATING: Symbol("ir"),
+  DECREMENT_RATING: Symbol("dr"),
   CLEAR: Symbol("c"),
 });
 
@@ -17,15 +26,29 @@ const reducer = (state, { type, payload }) => {
       return { ...state, text: payload };
     case Action.SET_USER_NAME:
       return { ...state, userName: payload };
-    case Action.CLEAR:
-      return DEFAULT_FORM_VALUE;
+    case Action.INCREMENT_RATING: {
+      payload.increment();
+      return { ...state, rating: payload.count };
+    }
+    case Action.DECREMENT_RATING: {
+      payload.decrement();
+      return { ...state, rating: payload.count };
+    }
+    case Action.CLEAR: {
+      payload.reset();
+      return getAllDefaultValues(payload.count);
+    }
     default:
       return state;
   }
 };
 
 export const useForm = () => {
-  const [state, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
+  const counter = useCount();
+  const [state, dispatch] = useReducer(
+    reducer,
+    getAllDefaultValues(counter.count)
+  );
 
   const setText = (text) => {
     dispatch({ type: Action.SET_TEXT, payload: text });
@@ -34,16 +57,26 @@ export const useForm = () => {
   const setUserName = (userName) => {
     dispatch({ type: Action.SET_USER_NAME, payload: userName });
   };
+  const incrementRating = () => {
+    dispatch({ type: Action.INCREMENT_RATING, payload: counter });
+  };
+
+  const decrementRating = () => {
+    dispatch({ type: Action.DECREMENT_RATING, payload: counter });
+  };
 
   const clear = () => {
-    dispatch({ type: Action.CLEAR });
+    dispatch({ type: Action.CLEAR, payload: counter });
   };
 
   return {
     text: state.text,
     userName: state.userName,
+    rating: counter.count,
     setText,
     setUserName,
+    incrementRating,
+    decrementRating,
     clear,
   };
 };
