@@ -28,15 +28,15 @@ const reducer = (state, { type, payload }) => {
       return { ...state, userName: payload };
     case Action.INCREMENT_RATING: {
       payload.increment();
-      return { ...state, rating: payload.count };
+      return state;
     }
     case Action.DECREMENT_RATING: {
       payload.decrement();
-      return { ...state, rating: payload.count };
+      return state;
     }
     case Action.CLEAR: {
       payload.reset();
-      return getAllDefaultValues(payload.count);
+      return DEFAULT_FORM_VALUE;
     }
     default:
       return state;
@@ -45,10 +45,7 @@ const reducer = (state, { type, payload }) => {
 
 export const useForm = () => {
   const counter = useCount();
-  const [state, dispatch] = useReducer(
-    reducer,
-    getAllDefaultValues(counter.count)
-  );
+  const [formState, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
 
   const setText = (text) => {
     dispatch({ type: Action.SET_TEXT, payload: text });
@@ -70,8 +67,8 @@ export const useForm = () => {
   };
 
   return {
-    text: state.text,
-    userName: state.userName,
+    text: formState.text,
+    userName: formState.userName,
     rating: counter.count,
     setText,
     setUserName,
