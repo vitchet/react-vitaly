@@ -1,0 +1,9 @@
+.v-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.center {
+  justify-content: center;
+}
