@@ -3,7 +3,7 @@ import { RestaurantView } from "../restaurant-view/restaurant-view";
 
 import { restaurants } from "../../constants/mock";
 
-import "../../css/global.css";
+import "../../css/global.scss";
 
 export const App = () => {
   return (

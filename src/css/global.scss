@@ -1,6 +1,6 @@
-@import "./colors.css";
-@import "./common.css";
-@import "./resets.css";
+@use "./colors.scss";
+@use "./common.scss";
+@use "./resets.scss";
 
 :root {
   font-size: 16px;
