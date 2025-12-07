@@ -19,14 +19,22 @@ const getSizeClass = (size) => {
     case ButtonSize.LARGE:
       return styles.sizeLarge;
     default:
-      return DEFAULT_SIZE;
+      return styles.sizeMedium;
   }
 };
 
-export const Button = ({ children, onClick, size = DEFAULT_SIZE }) => {
+export const Button = ({
+  children,
+  onClick,
+  size = DEFAULT_SIZE,
+  navButton = false,
+}) => {
   return (
     <button
-      className={classnames(styles.button, getSizeClass(size))}
+      className={classnames(
+        navButton ? styles.navButton : styles.button,
+        getSizeClass(size)
+      )}
       onClick={onClick}
     >
       {children}
