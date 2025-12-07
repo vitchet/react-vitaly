@@ -1,4 +1,4 @@
-import styles from "./app-layout.module.css";
+import styles from "./app-layout.module.scss";
 
 import classNames from "classnames";
 
