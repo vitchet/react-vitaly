@@ -2,7 +2,7 @@ import styles from "./restaurant-nav-bar.module.scss";
 
 import { Button, ButtonSize } from "../button/button";
 
-export const RestaurantNavBar = ({ restaurants }) => {
+export const RestaurantNavBar = ({ restaurants, onSelect }) => {
   return (
     <nav>
       <ul className={styles.restaurantNavBar}>
@@ -11,7 +11,7 @@ export const RestaurantNavBar = ({ restaurants }) => {
           return (
             <li className={styles.restaurantNavElement} key={id}>
               <Button
-                onClick={() => setSelectedItem(restaurant)}
+                onClick={() => onSelect(restaurant)}
                 size={ButtonSize.LARGE}
                 navButton
               >

@@ -8,7 +8,10 @@ export const RestaurantView = ({ restaurants }) => {
 
   return (
     <>
-      <RestaurantNavBar restaurants={restaurants} />
+      <RestaurantNavBar
+        restaurants={restaurants}
+        onSelect={(restaurant) => setSelectedItem(restaurant)}
+      />
       <Restaurant restaurant={selectedItem} />
     </>
   );
