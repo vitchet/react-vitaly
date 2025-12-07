@@ -1,13 +1,17 @@
+import { Button } from "../button/button";
+
+import { fontSize } from "../../common/font-size";
+
 export const Counter = ({ count, increment, decrement }) => {
   return (
     <>
-      <button type="button" onClick={increment}>
+      <Button type="button" onClick={increment} fontSize={fontSize.large}>
         +
-      </button>
+      </Button>
       <span> {count} </span>
-      <button type="button" onClick={decrement}>
+      <Button type="button" onClick={decrement} fontSize={fontSize.small}>
         -
-      </button>
+      </Button>
     </>
   );
 };

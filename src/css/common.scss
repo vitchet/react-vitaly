@@ -1,9 +1,6 @@
-.v-flex {
+@mixin flex-box($direction, $justify-content) {
   display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
-}
-
-.center {
-  justify-content: center;
+  flex-direction: $direction;
+  justify-content: $justify-content;
 }

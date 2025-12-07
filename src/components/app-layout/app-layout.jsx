@@ -1,14 +1,10 @@
 import styles from "./app-layout.module.scss";
 
-import classNames from "classnames";
-
 export const AppLayout = ({ children }) => {
   return (
-    <div className={classNames(styles.layout, "v-flex", "center")}>
+    <div className={styles.layout}>
       <header></header>
-      <main className={classNames(styles.main, "v-flex", "center")}>
-        {children}
-      </main>
+      <main className={styles.main}>{children}</main>
       <footer></footer>
     </div>
   );
