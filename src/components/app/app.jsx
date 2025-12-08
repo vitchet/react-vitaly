@@ -1,5 +1,5 @@
 import { AppLayout } from "../app-layout/app-layout";
-import { RestaurantView } from "../restaurant-view/restaurant-view";
+import { RestaurantPage } from "../restaurant-page/restaurant-page";
 
 import { restaurants } from "../../constants/mock";
 
@@ -8,7 +8,7 @@ import "../../css/global.scss";
 export const App = () => {
   return (
     <AppLayout>
-      <RestaurantView restaurants={restaurants} />
+      <RestaurantPage restaurants={restaurants} />
     </AppLayout>
   );
 };

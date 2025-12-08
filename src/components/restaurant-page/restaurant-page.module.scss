@@ -1,0 +1,6 @@
+@use "../../css/common.scss";
+
+.navBar {
+  @include common.v-flex;
+  gap: 1rem;
+}

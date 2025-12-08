@@ -1,18 +1,20 @@
-import { Restaurant } from "../restaurant/restaurant";
-import { RestaurantNavBar } from "../restaurant-nav-bar/restaurant-nav-bar";
+import styles from "./restaurant-view.module.scss";
 
-import { useSelection } from "./use-selection";
+import { DishList } from "../dish-list/dish-list";
+import { ReviewList } from "../review-list/review-list";
+import { ReviewForm } from "../review-form/review-form";
 
-export const RestaurantView = ({ restaurants }) => {
-  const { selectedItem, setSelectedItem } = useSelection(restaurants);
+export const RestaurantView = ({ restaurant }) => {
+  const { name, menu, reviews } = restaurant;
 
   return (
-    <>
-      <RestaurantNavBar
-        restaurants={restaurants}
-        onSelect={(restaurant) => setSelectedItem(restaurant)}
-      />
-      <Restaurant restaurant={selectedItem} />
-    </>
+    <article>
+      <h2 className={styles.title}>{name}</h2>
+      <h3>Menu</h3>
+      <DishList dishes={menu} />
+      <h3>Reviews</h3>
+      <ReviewList reviews={reviews} />
+      <ReviewForm />
+    </article>
   );
 };
