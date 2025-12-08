@@ -10,10 +10,11 @@
 
 .subTitle {
   font-size: 3rem;
+  padding-left: 0.5rem;
 }
 
 .main {
-  @include common.flex-box(row);
+  @include common.flex-box(column);
   gap: 1rem;
 }
 
