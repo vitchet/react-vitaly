@@ -1,6 +1,6 @@
 @use "../../css/common.scss";
 
-.navBar {
-  @include common.v-flex;
+.restaurantPage {
+  @include common.flex-box(column, start);
   gap: 1rem;
 }

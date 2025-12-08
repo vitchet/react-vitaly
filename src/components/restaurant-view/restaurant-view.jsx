@@ -8,13 +8,29 @@ export const RestaurantView = ({ restaurant }) => {
   const { name, menu, reviews } = restaurant;
 
   return (
-    <article>
-      <h2 className={styles.title}>{name}</h2>
-      <h3>Menu</h3>
-      <DishList dishes={menu} />
-      <h3>Reviews</h3>
-      <ReviewList reviews={reviews} />
-      <ReviewForm />
+    <article className={styles.restaurantView}>
+      <header>
+        <h2 className={styles.title}>{name}</h2>
+      </header>
+      <main className={styles.main}>
+        <section class={styles.section}>
+          <header>
+            <h3 className={styles.subTitle}>Menu</h3>
+          </header>
+          <main>
+            <DishList dishes={menu} />
+          </main>
+        </section>
+        <section class={styles.section}>
+          <header>
+            <h3 className={styles.subTitle}>Reviews</h3>
+          </header>
+          <main>
+            <ReviewList reviews={reviews} />
+            <ReviewForm />
+          </main>
+        </section>
+      </main>
     </article>
   );
 };

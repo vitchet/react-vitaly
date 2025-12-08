@@ -1,4 +1,4 @@
-@mixin flex-box($orientation, $justify-content) {
+@mixin flex-box($orientation, $justify-content: start) {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: $orientation;

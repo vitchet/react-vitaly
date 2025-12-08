@@ -1,0 +1,11 @@
+@use "../../css/common";
+@use "../../css/light-colors.scss" as colors;
+
+.dishList {
+  @include common.flex-box(column);
+  gap: 0.75rem;
+}
+
+.dishItem {
+  background-color: colors.$item-bg;
+}
