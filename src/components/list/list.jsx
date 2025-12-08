@@ -1,6 +1,8 @@
+import styles from "./list.module.scss";
+
 export const List = ({ items, itemComponent }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {items.map((item) => {
         const key = item.id;
         if (key === undefined) {
@@ -8,7 +10,11 @@ export const List = ({ items, itemComponent }) => {
             'List items should contain "id" field to be used as a key.'
           );
         }
-        return <li key={key}>{itemComponent(item)}</li>;
+        return (
+          <li key={key} className={styles.listItem}>
+            {itemComponent(item)}
+          </li>
+        );
       })}
     </ul>
   );

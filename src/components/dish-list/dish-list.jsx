@@ -1,5 +1,3 @@
-import styles from "./dish-list.module.scss";
-
 import { Dish } from "../dish/dish";
 import { List } from "../list/list";
 
