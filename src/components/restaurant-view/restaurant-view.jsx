@@ -13,7 +13,7 @@ export const RestaurantView = ({ restaurant }) => {
         <h2 className={styles.title}>{name}</h2>
       </header>
       <main className={styles.main}>
-        <section class={styles.section}>
+        <section className={styles.section}>
           <header>
             <h3 className={styles.subTitle}>Menu</h3>
           </header>
@@ -21,7 +21,7 @@ export const RestaurantView = ({ restaurant }) => {
             <DishList dishes={menu} />
           </main>
         </section>
-        <section class={styles.section}>
+        <section className={styles.section}>
           <header>
             <h3 className={styles.subTitle}>Reviews</h3>
           </header>

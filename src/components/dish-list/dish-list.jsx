@@ -1,16 +1,14 @@
 import styles from "./dish-list.module.scss";
 
 import { Dish } from "../dish/dish";
+import { List } from "../list/list";
 
 export const DishList = ({ dishes }) => {
   return dishes?.length > 0 ? (
-    <ul className={styles.dishList}>
-      {dishes.map(({ id, name, price, ingredients }) => (
-        <li className={styles.dishItem} key={id}>
-          <Dish name={name} price={price} ingredients={ingredients} />
-        </li>
-      ))}
-    </ul>
+    <List
+      items={dishes}
+      itemComponent={(dish) => <Dish dish={dish}></Dish>}
+    ></List>
   ) : (
     <p>There are no dishes available.</p>
   );
