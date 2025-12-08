@@ -5,14 +5,16 @@ import { DishCounter } from "../dish-counter/dish-counter";
 export const Dish = ({ dish }) => {
   const { name, price, ingredients } = dish;
   return (
-    <>
+    <main className={styles.dish}>
       <section>
-        <b>{name}</b> ${price}
-        <p>{ingredients.join(", ")}</p>
+        <p className={styles.title}>
+          <b>{name}</b> ${price}
+        </p>
+        <p className={styles.ingredientList}>{ingredients.join(", ")}</p>
       </section>
-      <p>
+      <section className={styles.counter}>
         <DishCounter />
-      </p>
-    </>
+      </section>
+    </main>
   );
 };

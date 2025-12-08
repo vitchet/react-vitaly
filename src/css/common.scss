@@ -1,6 +1,11 @@
-@mixin flex-box($orientation, $justify-content: start) {
+@mixin flex-box(
+  $orientation,
+  $justify-content: flex-start,
+  $align-items: stretch
+) {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: $orientation;
   justify-content: $justify-content;
+  align-items: $align-items;
 }

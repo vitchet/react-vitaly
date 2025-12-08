@@ -14,7 +14,7 @@
 
 .main {
   @include common.flex-box(row);
-  padding: 0 1rem;
+  gap: 1rem;
 }
 
 .section {
@@ -27,6 +27,5 @@
 
   @include common.flex-box(column);
   gap: $gap;
-  padding: 0 0.75rem;
   margin-top: $gap;
 }
