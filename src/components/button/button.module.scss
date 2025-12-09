@@ -8,14 +8,15 @@
   width: fit-content;
 }
 
+.button:hover {
+  background-color: colors.$button-bg-hover;
+  cursor: pointer;
+}
+
 .navButton {
   @extend .button;
   border-radius: 0;
   width: 100%;
-}
-
-.button:hover {
-  background-color: colors.$button-bg-hover;
 }
 
 .sizeSmall {

@@ -3,7 +3,6 @@
 
 .layout {
   @include common.flex-box(column, center);
-  gap: 2rem;
   margin: 0 auto;
   padding: 0 2rem;
   width: 960px;

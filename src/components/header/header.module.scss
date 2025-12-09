@@ -1,0 +1,6 @@
+@use "../../css/common";
+
+.header {
+  @include common.flex-box(row, end);
+  padding: 1rem;
+}
