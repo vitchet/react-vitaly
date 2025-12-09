@@ -1,13 +1,16 @@
+import { Button } from "../button/button";
+import { ButtonSize } from "../button/button";
+
 export const Counter = ({ count, increment, decrement }) => {
   return (
     <>
-      <button type="button" onClick={increment}>
+      <Button type="button" onClick={increment} size={ButtonSize.SMALL}>
         +
-      </button>
+      </Button>
       <span> {count} </span>
-      <button type="button" onClick={decrement}>
+      <Button type="button" onClick={decrement} size={ButtonSize.SMALL}>
         -
-      </button>
+      </Button>
     </>
   );
 };

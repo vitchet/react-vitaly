@@ -1,0 +1,31 @@
+@use "../../css/light-colors" as colors;
+
+.button {
+  background-color: colors.$button-bg;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  color: inherit;
+  width: fit-content;
+}
+
+.navButton {
+  @extend .button;
+  border-radius: 0;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: colors.$button-bg-hover;
+}
+
+.sizeSmall {
+  font-size: 1rem;
+}
+
+.sizeMedium {
+  font-size: 1.5rem;
+}
+
+.sizeLarge {
+  font-size: 2rem;
+}

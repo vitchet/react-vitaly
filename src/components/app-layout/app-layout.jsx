@@ -1,19 +1,11 @@
-import { ScrollProgressBar } from "../scroll-progres-bar/scroll-progress-bar";
-
-const headerStyles = {
-  position: "fixed",
-  width: "100%",
-  height: "1rem",
-};
+import styles from "./app-layout.module.scss";
 
 export const AppLayout = ({ children }) => {
   return (
-    <>
-      <header style={headerStyles}>
-        <ScrollProgressBar />
-      </header>
-      <main>{children}</main>
+    <div className={styles.layout}>
+      <header></header>
+      <main className={styles.main}>{children}</main>
       <footer></footer>
-    </>
+    </div>
   );
 };

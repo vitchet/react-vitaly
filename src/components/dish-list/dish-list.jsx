@@ -1,14 +1,9 @@
 import { Dish } from "../dish/dish";
+import { List } from "../list/list";
 
 export const DishList = ({ dishes }) => {
   return dishes?.length > 0 ? (
-    <ul>
-      {dishes.map(({ id, name, price, ingredients }) => (
-        <li key={id}>
-          <Dish name={name} price={price} ingredients={ingredients} />
-        </li>
-      ))}
-    </ul>
+    <List items={dishes} itemComponent={(dish) => <Dish dish={dish}></Dish>} />
   ) : (
     <p>There are no dishes available.</p>
   );

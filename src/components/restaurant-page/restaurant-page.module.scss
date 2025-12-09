@@ -1,0 +1,6 @@
+@use "../../css/common.scss";
+
+.restaurantPage {
+  @include common.flex-box(column, start);
+  gap: 1rem;
+}

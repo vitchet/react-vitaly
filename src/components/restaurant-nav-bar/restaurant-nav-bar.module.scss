@@ -1,0 +1,11 @@
+@use "../../css/common.scss";
+
+.restaurantNavBar {
+  @include common.flex-box(row, space-evenly);
+  gap: 3px;
+}
+
+.restaurantNavElement {
+  flex-grow: 1;
+  flex-basis: 0;
+}

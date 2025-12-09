@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+  display: block;
+}
+
+li {
+  display: list-item;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+form,
+input,
+textarea {
+  display: block;
+  border: none;
+  background: none;
+  outline: none;
+}

@@ -1,0 +1,12 @@
+@use "../../css/common";
+@use "../../css/light-colors.scss" as colors;
+
+.list {
+  @include common.flex-box(column);
+  gap: 0.75rem;
+}
+
+.listItem {
+  background-color: colors.$item-bg;
+  padding: 1rem;
+}

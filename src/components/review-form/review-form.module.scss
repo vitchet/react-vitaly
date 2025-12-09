@@ -1,0 +1,37 @@
+@use "../../css/common.scss";
+@use "../../css/light-colors.scss" as colors;
+
+.form {
+  @include common.flex-box(column);
+  gap: 1rem;
+  padding: 1rem;
+  background-color: colors.$item-bg;
+  font-size: 1.1rem;
+}
+
+.inputPad {
+  @include common.flex-box(column);
+  gap: 0.5rem;
+}
+
+.nameInput,
+.textarea {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: colors.$main-bg;
+}
+
+.nameInput {
+  font-size: 1.25rem;
+}
+
+.textarea {
+  min-height: 10rem;
+  font-size: inherit;
+  resize: none;
+}
+
+.buttonPad {
+  @include common.flex-box(row, space-between);
+  padding: 0 0.5rem;
+}
