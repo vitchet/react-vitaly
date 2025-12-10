@@ -5,4 +5,4 @@ export const ThemeType = Object.freeze({
   DARK: Symbol("dark"),
 });
 
-export const ThemeContext = createContext({});
+export const ThemeContext = createContext();

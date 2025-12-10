@@ -6,20 +6,14 @@ import { restaurants } from "../../constants/mock";
 
 import { AppLayout } from "../app-layout/app-layout";
 import { RestaurantPage } from "../restaurant-page/restaurant-page";
-import { ThemeContext, ThemeType } from "../theme-context/theme-context";
+import { ThemeContextProvider } from "../theme-context/theme-context-provider";
 
 export const App = () => {
-  const [theme, setTheme] = useState(ThemeType.LIGHT);
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme.description);
-  }, [theme]);
-
   return (
-    <ThemeContext value={{ theme, setTheme }}>
+    <ThemeContextProvider>
       <AppLayout>
         <RestaurantPage restaurants={restaurants} />
       </AppLayout>
-    </ThemeContext>
+    </ThemeContextProvider>
   );
 };
