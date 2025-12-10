@@ -1,5 +1,5 @@
-@use "../../css/common.scss";
-@use "../../css/light-colors.scss" as colors;
+@use "../../css/colors";
+@use "../../css/common";
 
 .form {
   @include common.flex-box(column);
@@ -19,6 +19,7 @@
   width: 100%;
   padding: 0.5rem;
   background-color: colors.$main-bg;
+  color: inherit;
 }
 
 .nameInput {

@@ -15,7 +15,15 @@ const getIcon = (type) => {
 };
 
 export const ThemeToggleButton = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
-  return <Button size={ButtonSize.LARGE}>{getIcon(theme)}</Button>;
+  const toggleTheme = () => {
+    setTheme(theme === ThemeType.LIGHT ? ThemeType.DARK : ThemeType.LIGHT);
+  };
+
+  return (
+    <Button onClick={toggleTheme} size={ButtonSize.LARGE}>
+      {getIcon(theme)}
+    </Button>
+  );
 };

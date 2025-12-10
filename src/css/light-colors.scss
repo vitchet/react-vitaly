@@ -1,5 +1,8 @@
-$main-bg: #fff8f0;
-$item-bg: #f5e9d3;
-$button-bg: rgba(255, 107, 107, 0.8);
-$button-bg-hover: rgba(255, 107, 107, 1);
-$text: #4a4a4a;
+$colors: (
+  body-bg: white,
+  main-bg: #fff8f0,
+  item-bg: #f5e9d3,
+  button-bg: rgba(255, 107, 107, 0.8),
+  button-bg-hover: rgba(255, 107, 107, 1),
+  text: #4a4a4a,
+);

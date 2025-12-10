@@ -1,5 +1,5 @@
 @use "../../css/common";
-@use "../../css/light-colors.scss" as colors;
+@use "../../css/colors.scss";
 
 .list {
   @include common.flex-box(column);
