@@ -43,12 +43,7 @@ export const ReviewForm = () => {
             decrement={decrementRating}
           />
         </p>
-        <Button
-          type="button"
-          size={ButtonSize.SMALL}
-          value={text}
-          onClick={clear}
-        >
+        <Button size={ButtonSize.SMALL} value={text} onClick={clear}>
           CLEAR
         </Button>
       </section>

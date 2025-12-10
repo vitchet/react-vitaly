@@ -49,6 +49,7 @@ export const useForm = () => {
   const setUserName = (userName) => {
     dispatch({ type: Action.SET_USER_NAME, payload: userName });
   };
+
   const incrementRating = () => {
     dispatch({ type: Action.INCREMENT_RATING, payload: counter });
   };
