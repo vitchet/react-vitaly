@@ -1,8 +1,9 @@
+import styles from "./auth-panel.module.scss";
+
 import { useContext } from "react";
 
-import { UserContext } from "../user-context/user-context";
-
 import { Button } from "../button/button";
+import { UserContext } from "../user-context/user-context";
 
 export const AuthPanel = () => {
   const { user, signIn, signOut } = useContext(UserContext);
@@ -14,15 +15,20 @@ export const AuthPanel = () => {
 
   if (user) {
     return (
-      <>
-        <p>{user.name}</p>
+      <div className={styles.panel}>
+        <p className={styles.name}>{user.name}</p>
         <Button onClick={signOut}>Sign Out</Button>
-      </>
+      </div>
     );
   } else {
     return (
-      <form onSubmit={handleSubmit}>
-        <input name="userName" type="text" placeholder="Enter your name..." />
+      <form onSubmit={handleSubmit} className={styles.panel}>
+        <input
+          name="userName"
+          type="text"
+          placeholder="Enter your name..."
+          className={styles.name}
+        />
         <Button submit>Sign In</Button>
       </form>
     );

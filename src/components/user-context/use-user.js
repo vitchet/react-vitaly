@@ -23,7 +23,9 @@ export const useUser = () => {
   const [user, dispatch] = useReducer(reducer, null);
 
   const signIn = (userName) => {
-    dispatch({ type: Action.SIGN_IN, payload: userName });
+    if (userName?.length) {
+      dispatch({ type: Action.SIGN_IN, payload: userName });
+    }
   };
 
   const signOut = () => {

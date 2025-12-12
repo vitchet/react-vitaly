@@ -3,4 +3,5 @@
 .header {
   @include common.flex-box(row, end);
   padding: 1rem;
+  gap: 1rem;
 }

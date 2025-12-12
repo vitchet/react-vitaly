@@ -1,0 +1,15 @@
+@use "../../css/colors";
+@use "../../css/common";
+
+.panel {
+  @include common.flex-box(row, end);
+  gap: 0.5rem;
+}
+
+.name {
+  @include common.flex-box(row, start, center);
+  background-color: colors.$item-bg;
+  color: colors.$text;
+  padding: 0 0.5rem;
+  font-size: 1.5rem;
+}
