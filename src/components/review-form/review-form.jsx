@@ -8,16 +8,8 @@ import { Counter } from "../counter/counter";
 import { UserContext } from "../user-context/user-context";
 
 export const ReviewForm = () => {
-  const {
-    text,
-    userName,
-    rating,
-    setText,
-    setUserName,
-    incrementRating,
-    decrementRating,
-    clear,
-  } = useForm();
+  const { text, rating, setText, incrementRating, decrementRating, clear } =
+    useForm();
   const { user } = useContext(UserContext);
 
   if (!user) {
