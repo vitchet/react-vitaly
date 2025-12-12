@@ -1,7 +1,7 @@
 @use "../../css/colors";
 
 .button {
-  background-color: var(--button-bg-color);
+  background-color: colors.$button-bg;
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
   color: inherit;
