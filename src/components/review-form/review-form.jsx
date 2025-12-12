@@ -1,9 +1,11 @@
 import styles from "./review-form.module.scss";
 
+import { useContext } from "react";
 import { useForm } from "./use-form";
 
 import { Button, ButtonSize } from "../button/button";
 import { Counter } from "../counter/counter";
+import { UserContext } from "../user-context/user-context";
 
 export const ReviewForm = () => {
   const {
@@ -16,17 +18,16 @@ export const ReviewForm = () => {
     decrementRating,
     clear,
   } = useForm();
+  const { user } = useContext(UserContext);
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
       <section className={styles.inputPad}>
-        <input
-          type="text"
-          placeholder="Enter your name..."
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-          className={styles.nameInput}
-        />
+        <p className={styles.name}>{user.name}</p>
         <textarea
           placeholder="Write your review..."
           value={text}
