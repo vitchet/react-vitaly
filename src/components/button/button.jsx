@@ -28,9 +28,11 @@ export const Button = ({
   onClick,
   size = DEFAULT_SIZE,
   navButton = false,
+  submit = false,
 }) => {
   return (
     <button
+      type={submit ? "submit" : "button"}
       className={classnames(
         navButton ? styles.navButton : styles.button,
         getSizeClass(size)

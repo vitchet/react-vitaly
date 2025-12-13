@@ -1,5 +1,5 @@
-@use "../../css/common.scss";
-@use "../../css/light-colors.scss" as colors;
+@use "../../css/colors";
+@use "../../css/common";
 
 .form {
   @include common.flex-box(column);
@@ -14,15 +14,18 @@
   gap: 0.5rem;
 }
 
-.nameInput,
 .textarea {
   width: 100%;
   padding: 0.5rem;
   background-color: colors.$main-bg;
+  color: inherit;
 }
 
-.nameInput {
-  font-size: 1.25rem;
+.name {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: inherit;
 }
 
 .textarea {

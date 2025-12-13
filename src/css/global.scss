@@ -1,5 +1,24 @@
+@use "./light-colors";
+@use "./dark-colors";
 @use "./resets";
 
 :root {
   font-size: 16px;
+}
+
+// THEMED COLOR PALLETS
+[data-theme="light"] {
+  @each $key, $value in light-colors.$colors {
+    --#{$key}-color: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $key, $value in dark-colors.$colors {
+    --#{$key}-color: #{$value};
+  }
+}
+
+body {
+  background-color: var(--body-bg-color);
 }

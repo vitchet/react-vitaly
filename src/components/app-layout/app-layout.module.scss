@@ -1,9 +1,8 @@
 @use "../../css/common";
-@use "../../css/light-colors.scss" as colors;
+@use "../../css/colors";
 
 .layout {
   @include common.flex-box(column, center);
-  gap: 2rem;
   margin: 0 auto;
   padding: 0 2rem;
   width: 960px;
