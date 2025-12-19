@@ -1,7 +1,8 @@
+import { useReview } from "@/hooks/use-review";
 import styles from "./review.module.scss";
 
-export const Review = ({ review }) => {
-  const { user, text, rating } = review;
+export const Review = ({ id }) => {
+  const { user, text, rating } = useReview(id);
   return (
     <>
       <p>

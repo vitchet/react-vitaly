@@ -28,8 +28,8 @@ export const RestaurantView = ({ id }) => {
             <h3 className={styles.subTitle}>Reviews</h3>
           </header>
           <main>
-            {/* <ReviewList reviews={reviews} />
-            <ReviewForm /> */}
+            <ReviewList ids={reviews} />
+            <ReviewForm />
           </main>
         </section>
       </main>
