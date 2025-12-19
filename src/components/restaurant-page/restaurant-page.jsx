@@ -1,20 +1,21 @@
 import styles from "./restaurant-page.module.scss";
 
+import { useRestaurantPage } from "./use-restaurant-page";
+
 import { RestaurantView } from "../restaurant-view/restaurant-view";
 import { RestaurantNavBar } from "../restaurant-nav-bar/restaurant-nav-bar";
 
-import { useSelection } from "./use-selection";
-
-export const RestaurantPage = ({ restaurants }) => {
-  const { selectedItem, setSelectedItem } = useSelection(restaurants);
+export const RestaurantPage = () => {
+  const { restaurantIds, shownRestaurantId, setShownRestaurantId } =
+    useRestaurantPage();
 
   return (
     <div className={styles.restaurantPage}>
       <RestaurantNavBar
-        restaurants={restaurants}
-        onSelect={(restaurant) => setSelectedItem(restaurant)}
+        ids={restaurantIds}
+        onClick={(id) => setShownRestaurantId(id)}
       />
-      <RestaurantView restaurant={selectedItem} />
+      <RestaurantView id={shownRestaurantId} />
     </div>
   );
 };

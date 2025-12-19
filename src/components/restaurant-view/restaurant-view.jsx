@@ -1,11 +1,13 @@
 import styles from "./restaurant-view.module.scss";
 
+import { useRestaurant } from "../../hooks/use-restaurant";
+
 import { DishList } from "../dish-list/dish-list";
 import { ReviewList } from "../review-list/review-list";
 import { ReviewForm } from "../review-form/review-form";
 
-export const RestaurantView = ({ restaurant }) => {
-  const { name, menu, reviews } = restaurant;
+export const RestaurantView = ({ id }) => {
+  const { name, menu, reviews } = useRestaurant(id);
 
   return (
     <article className={styles.restaurantView}>
@@ -17,17 +19,15 @@ export const RestaurantView = ({ restaurant }) => {
           <header>
             <h3 className={styles.subTitle}>Menu</h3>
           </header>
-          <main>
-            <DishList dishes={menu} />
-          </main>
+          <main>{/* <DishList dishes={menu} /> */}</main>
         </section>
         <section className={styles.section}>
           <header>
             <h3 className={styles.subTitle}>Reviews</h3>
           </header>
           <main>
-            <ReviewList reviews={reviews} />
-            <ReviewForm />
+            {/* <ReviewList reviews={reviews} />
+            <ReviewForm /> */}
           </main>
         </section>
       </main>

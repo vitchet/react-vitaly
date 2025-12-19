@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import { restaurantSlice } from "./restaurant/restaurant-slice";
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [restaurantSlice.name]: restaurantSlice.reducer,
+  },
 });
