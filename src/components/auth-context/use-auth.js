@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-import User from "../../classes/User";
+import Auth from "../../classes/Auth";
 
 const Action = Object.freeze({
   SIGN_IN: Symbol("si"),
@@ -10,7 +10,7 @@ const Action = Object.freeze({
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case Action.SIGN_IN: {
-      return new User(payload);
+      return new Auth(payload);
     }
     case Action.SIGN_OUT:
       return null;
@@ -20,7 +20,7 @@ const reducer = (state, { type, payload }) => {
 };
 
 export const useAuth = () => {
-  const [user, dispatch] = useReducer(reducer, null);
+  const [auth, dispatch] = useReducer(reducer, null);
 
   const signIn = (userName) => {
     if (userName?.length) {
@@ -33,7 +33,7 @@ export const useAuth = () => {
   };
 
   return {
-    user,
+    auth,
     signIn,
     signOut,
   };

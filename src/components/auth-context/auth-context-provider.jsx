@@ -1,11 +1,11 @@
-import { useUser } from "./use-auth";
+import { useAuth } from "./use-auth";
 
 import { AuthContext } from "./auth-context";
 
 export const AuthContextProvider = ({ children }) => {
-  const { user, signIn, signOut } = useUser();
+  const { auth, signIn, signOut } = useAuth();
 
   return (
-    <AuthContext value={{ user, signIn, signOut }}>{children}</AuthContext>
+    <AuthContext value={{ auth, signIn, signOut }}>{children}</AuthContext>
   );
 };

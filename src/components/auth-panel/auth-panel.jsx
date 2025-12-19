@@ -6,17 +6,17 @@ import { Button } from "../button/button";
 import { AuthContext } from "../auth-context/auth-context";
 
 export const AuthPanel = () => {
-  const { user, signIn, signOut } = useContext(AuthContext);
+  const { auth, signIn, signOut } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(e.target.userName.value);
   };
 
-  if (user) {
+  if (auth) {
     return (
       <div className={styles.panel}>
-        <p className={styles.name}>{user.name}</p>
+        <p className={styles.name}>{auth.userName}</p>
         <Button onClick={signOut}>Sign Out</Button>
       </div>
     );

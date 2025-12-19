@@ -7,15 +7,15 @@ import { AuthContext } from "../auth-context/auth-context";
 
 export const DishCounter = () => {
   const { count, increment, decrement, reset } = useCount();
-  const { user } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   useEffect(() => {
-    if (!user) {
+    if (!auth) {
       reset();
     }
-  }, [user]);
+  }, [auth]);
 
-  if (!user) {
+  if (!auth) {
     return null;
   }
 

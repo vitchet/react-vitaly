@@ -10,16 +10,16 @@ import { AuthContext } from "../auth-context/auth-context";
 export const ReviewForm = () => {
   const { text, rating, setText, incrementRating, decrementRating, clear } =
     useForm();
-  const { user } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
-  if (!user) {
+  if (!auth) {
     return null;
   }
 
   return (
     <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
       <section className={styles.inputPad}>
-        <p className={styles.name}>{user.name}</p>
+        <p className={styles.name}>{auth.userName}</p>
         <textarea
           placeholder="Write your review..."
           value={text}
