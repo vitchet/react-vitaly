@@ -1,9 +1,11 @@
 import styles from "./dish.module.scss";
 
+import { useDish } from "@/hooks/use-dish";
+
 import { DishCounter } from "../dish-counter/dish-counter";
 
-export const Dish = ({ dish }) => {
-  const { name, price, ingredients } = dish;
+export const Dish = ({ id }) => {
+  const { name, price, ingredients } = useDish(id);
   return (
     <main className={styles.dish}>
       <section>

@@ -1,6 +1,6 @@
 import styles from "./restaurant-view.module.scss";
 
-import { useRestaurant } from "../../hooks/use-restaurant";
+import { useRestaurant } from "@/hooks/use-restaurant";
 
 import { DishList } from "../dish-list/dish-list";
 import { ReviewList } from "../review-list/review-list";
@@ -19,7 +19,9 @@ export const RestaurantView = ({ id }) => {
           <header>
             <h3 className={styles.subTitle}>Menu</h3>
           </header>
-          <main>{/* <DishList dishes={menu} /> */}</main>
+          <main>
+            <DishList ids={menu} />
+          </main>
         </section>
         <section className={styles.section}>
           <header>

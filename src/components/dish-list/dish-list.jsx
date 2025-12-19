@@ -1,10 +1,10 @@
 import { Dish } from "../dish/dish";
 import { List } from "../list/list";
 
-export const DishList = ({ dishes }) => {
-  return dishes?.length > 0 ? (
-    <List items={dishes} itemComponent={(dish) => <Dish dish={dish}></Dish>} />
-  ) : (
-    <p>There are no dishes available.</p>
-  );
+export const DishList = ({ ids }) => {
+  if (ids.length === 0) {
+    return <p>There are no dishes available.</p>;
+  }
+
+  return <List ids={ids} component={(id) => <Dish id={id} />} />;
 };
