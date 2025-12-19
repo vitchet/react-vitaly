@@ -5,12 +5,12 @@ import { useForm } from "./use-form";
 
 import { Button, ButtonSize } from "../button/button";
 import { Counter } from "../counter/counter";
-import { UserContext } from "../user-context/user-context";
+import { AuthContext } from "../auth-context/auth-context";
 
 export const ReviewForm = () => {
   const { text, rating, setText, incrementRating, decrementRating, clear } =
     useForm();
-  const { user } = useContext(UserContext);
+  const { user } = useContext(AuthContext);
 
   if (!user) {
     return null;

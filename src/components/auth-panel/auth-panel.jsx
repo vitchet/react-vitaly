@@ -3,10 +3,10 @@ import styles from "./auth-panel.module.scss";
 import { useContext } from "react";
 
 import { Button } from "../button/button";
-import { UserContext } from "../user-context/user-context";
+import { AuthContext } from "../auth-context/auth-context";
 
 export const AuthPanel = () => {
-  const { user, signIn, signOut } = useContext(UserContext);
+  const { user, signIn, signOut } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();

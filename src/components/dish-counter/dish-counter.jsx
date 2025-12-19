@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { useEffect } from "react";
 
 import { Counter } from "../counter/counter";
-import { UserContext } from "../user-context/user-context";
+import { AuthContext } from "../auth-context/auth-context";
 
 export const DishCounter = () => {
   const { count, increment, decrement, reset } = useCount();
-  const { user } = useContext(UserContext);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     if (!user) {
