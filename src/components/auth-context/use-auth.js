@@ -19,7 +19,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-export const useUser = () => {
+export const useAuth = () => {
   const [user, dispatch] = useReducer(reducer, null);
 
   const signIn = (userName) => {
