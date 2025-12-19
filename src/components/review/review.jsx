@@ -1,12 +1,14 @@
 import { useReview } from "@/hooks/use-review";
 import styles from "./review.module.scss";
+import { userUser } from "@/hooks/use-user";
 
 export const Review = ({ id }) => {
-  const { auth, text, rating } = useReview(id);
+  const { userId, text, rating } = useReview(id);
+  const { name: userName } = userUser(userId);
   return (
     <>
       <p>
-        <b className={styles.userName}>{auth}</b>:{" "}
+        <b className={styles.userName}>{userName}</b>:{" "}
         <span className={styles.text}>"{text}"</span>
       </p>
       <p> {"⭐".repeat(rating)}</p>
