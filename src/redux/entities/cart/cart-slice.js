@@ -20,7 +20,7 @@ export const cartSlice = createSlice({
       }
     },
     clear: (state) => {
-      state = {};
+      return {};
     },
   },
   selectors: {
