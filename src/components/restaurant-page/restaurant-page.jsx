@@ -5,6 +5,7 @@ import { useSelection } from "./use-selection";
 
 import { RestaurantView } from "../restaurant-view/restaurant-view";
 import { RestaurantNavBar } from "../restaurant-nav-bar/restaurant-nav-bar";
+import { Cart } from "../cart/cart";
 
 export const RestaurantPage = () => {
   const restaurantIds = useRestaurantList();
@@ -15,6 +16,7 @@ export const RestaurantPage = () => {
 
   return (
     <div className={styles.restaurantPage}>
+      <Cart />
       <RestaurantNavBar
         ids={restaurantIds}
         onClick={(id) => setShownRestaurantId(id)}

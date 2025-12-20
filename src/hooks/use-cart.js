@@ -1,7 +1,4 @@
-import {
-  selectItemAmountById,
-  selectItemIds,
-} from "@/entities/cart/cart-slice";
+import { selectItemIds } from "@/entities/cart/cart-slice";
 import { useDispatch, useSelector } from "react-redux";
 
 export const useCart = () => {
