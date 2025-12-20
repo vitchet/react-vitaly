@@ -16,12 +16,12 @@ export const RestaurantPage = () => {
 
   return (
     <div className={styles.restaurantPage}>
-      <Cart />
       <RestaurantNavBar
         ids={restaurantIds}
         onClick={(id) => setShownRestaurantId(id)}
       />
       <RestaurantView id={shownRestaurantId} />
+      <Cart />
     </div>
   );
 };
