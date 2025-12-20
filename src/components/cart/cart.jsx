@@ -12,7 +12,7 @@ export const Cart = () => {
 
   return (
     <>
-      <List ids={ids} component={CartItem}></List>
+      <List ids={ids} component={(id) => <CartItem id={id} />}></List>
     </>
   );
 };
