@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import { cartSlice } from "./entities/cart/cart-slice";
 import { dishSlice } from "./entities/dish/dish-slice";
 import { restaurantSlice } from "./entities/restaurant/restaurant-slice";
 import { reviewSlice } from "./entities/review/review-slice";
 import { userSlice } from "./entities/user/user-slice";
-import { cartSlice } from "./entities/cart/cart-slice";
 
 export const store = configureStore({
   reducer: {

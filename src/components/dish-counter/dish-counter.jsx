@@ -1,19 +1,12 @@
-import { useCount } from "../../hooks/use-count";
 import { useContext } from "react";
-import { useEffect } from "react";
+import { useDishCounter } from "./use-dish-counter";
 
 import { Counter } from "../counter/counter";
 import { AuthContext } from "../auth-context/auth-context";
 
-export const DishCounter = () => {
-  const { count, increment, decrement, reset } = useCount();
+export const DishCounter = ({ id }) => {
+  const { count, increment, decrement } = useDishCounter(id);
   const { auth } = useContext(AuthContext);
-
-  useEffect(() => {
-    if (!auth) {
-      reset();
-    }
-  }, [auth]);
 
   if (!auth) {
     return null;

@@ -15,7 +15,7 @@ export const Dish = ({ id }) => {
         <p className={styles.ingredientList}>{ingredients.join(", ")}</p>
       </section>
       <section className={styles.counter}>
-        <DishCounter />
+        <DishCounter id={id} />
       </section>
     </main>
   );

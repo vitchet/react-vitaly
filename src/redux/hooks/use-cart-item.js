@@ -1,8 +1,9 @@
-import { selectItemAmountById } from "@/redux/entities/cart/cart-slice";
 import { useSelector } from "react-redux";
 
-export const useCartItem = (id) => {
-  const { amount } = useSelector(selectItemAmountById(id));
+import { selectItemAmountById } from "@/redux/entities/cart/cart-slice";
 
-  return { amount };
+export const useCartItem = (id) => {
+  const amount = useSelector((state) => selectItemAmountById(state, id));
+
+  return { amount: amount };
 };
