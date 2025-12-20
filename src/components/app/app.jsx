@@ -3,7 +3,7 @@ import "../../css/global.scss";
 import { Provider } from "react-redux";
 
 import { restaurants } from "../../constants/mock";
-import { store } from "../../redux/entities/store";
+import { store } from "../../redux/store";
 
 import { AppLayout } from "../app-layout/app-layout";
 import { RestaurantPage } from "../restaurant-page/restaurant-page";
