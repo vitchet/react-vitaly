@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { normalizedRestaurants } from "../../constants/normalized-mock";
+import { normalizedRestaurants } from "../../../constants/normalized-mock";
 
 const initialState = {
   ids: normalizedRestaurants.map(({ id }) => id),

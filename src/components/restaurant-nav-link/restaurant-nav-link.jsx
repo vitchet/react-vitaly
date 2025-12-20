@@ -1,4 +1,4 @@
-import { useRestaurant } from "@/hooks/use-restaurant";
+import { useRestaurant } from "@/redux/hooks/use-restaurant";
 
 import { Button, ButtonSize } from "../button/button";
 

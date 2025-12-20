@@ -1,6 +1,6 @@
 import styles from "./restaurant-page.module.scss";
 
-import { useRestaurantList } from "@/hooks/use-restaurant-list";
+import { useRestaurantList } from "@/redux/hooks/use-restaurant-list";
 import { useSelection } from "./use-selection";
 
 import { RestaurantView } from "../restaurant-view/restaurant-view";

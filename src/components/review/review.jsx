@@ -1,6 +1,6 @@
-import { useReview } from "@/hooks/use-review";
+import { useReview } from "@/redux/hooks/use-review";
 import styles from "./review.module.scss";
-import { userUser } from "@/hooks/use-user";
+import { userUser } from "@/redux/hooks/use-user";
 
 export const Review = ({ id }) => {
   const { userId, text, rating } = useReview(id);

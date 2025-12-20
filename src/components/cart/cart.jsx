@@ -1,4 +1,4 @@
-import { useCart } from "@/hooks/use-cart";
+import { useCart } from "@/redux/hooks/use-cart";
 
 import { CartItem } from "../cart-item/cart-item";
 import { List } from "../list/list";

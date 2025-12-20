@@ -1,6 +1,6 @@
 import styles from "./dish.module.scss";
 
-import { useDish } from "@/hooks/use-dish";
+import { useDish } from "@/redux/hooks/use-dish";
 
 import { DishCounter } from "../dish-counter/dish-counter";
 

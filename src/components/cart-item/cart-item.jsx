@@ -1,5 +1,5 @@
-import { useCartItem } from "@/hooks/use-cart-item";
-import { useDish } from "@/hooks/use-dish";
+import { useCartItem } from "@/redux/hooks/use-cart-item";
+import { useDish } from "@/redux/hooks/use-dish";
 
 export const CartItem = (id) => {
   const { name } = useDish(id);
