@@ -1,14 +1,16 @@
-import { useCartActions } from "@/redux/hooks/use-cart-actions";
-import { useCartItem } from "@/redux/hooks/use-cart-item";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+import { selectItemAmountById } from "@/redux/entities/cart/cart-slice";
+import { addItem, removeItem } from "@/redux/entities/cart/cart-slice";
 
 export const useDishCounter = (id) => {
-  const count = useCartItem(id).amount;
+  const dispatch = useDispatch();
+  const count = useSelector((state) => selectItemAmountById(state, id));
 
-  const { addItem, removeItem } = useCartActions();
+  const increment = () => dispatch(addItem(id));
 
-  const increment = () => addItem(id);
-
-  const decrement = () => removeItem(id);
+  const decrement = () => dispatch(removeItem(id));
 
   return {
     count,

@@ -1,11 +1,15 @@
 import styles from "./dish.module.scss";
 
-import { useDish } from "@/redux/hooks/use-dish";
+import { useSelector } from "react-redux";
+
+import { selectDishById } from "@/redux/entities/dish/dish-slice";
 
 import { DishCounter } from "../dish-counter/dish-counter";
 
 export const Dish = ({ id }) => {
-  const { name, price, ingredients } = useDish(id);
+  const { name, price, ingredients } = useSelector((state) =>
+    selectDishById(state, id)
+  );
   return (
     <main className={styles.dish}>
       <section>

@@ -1,10 +1,16 @@
-import { useReview } from "@/redux/hooks/use-review";
 import styles from "./review.module.scss";
-import { userUser } from "@/redux/hooks/use-user";
+
+import { useSelector } from "react-redux";
+import { selectReviewById } from "@/redux/entities/review/review-slice";
+import { selectUserById } from "@/redux/entities/user/user-slice";
 
 export const Review = ({ id }) => {
-  const { userId, text, rating } = useReview(id);
-  const { name: userName } = userUser(userId);
+  const { userId, text, rating } = useSelector((state) =>
+    selectReviewById(state, id)
+  );
+  const { name: userName } = useSelector((state) =>
+    selectUserById(state, userId)
+  );
   return (
     <>
       <p>

@@ -19,7 +19,7 @@ export const cartSlice = createSlice({
         delete state[id];
       }
     },
-    clear: (state) => {
+    clear: () => {
       return {};
     },
   },

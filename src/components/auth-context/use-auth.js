@@ -1,8 +1,9 @@
+import { useDispatch } from "react-redux";
 import { useReducer } from "react";
 
 import Auth from "../../classes/Auth";
 
-import { useCartActions } from "@/redux/hooks/use-cart-actions";
+import { clear } from "@/redux/entities/cart/cart-slice";
 
 const Action = Object.freeze({
   SIGN_IN: Symbol("si"),
@@ -22,8 +23,8 @@ const reducer = (state, { type, payload }) => {
 };
 
 export const useAuth = () => {
+  const dispatchSliceAction = useDispatch();
   const [auth, dispatch] = useReducer(reducer, null);
-  const { clear: clearCart } = useCartActions();
 
   const signIn = (userName) => {
     if (userName?.length) {
@@ -33,7 +34,7 @@ export const useAuth = () => {
 
   const signOut = () => {
     dispatch({ type: Action.SIGN_OUT });
-    clearCart();
+    dispatchSliceAction(clear());
   };
 
   return {

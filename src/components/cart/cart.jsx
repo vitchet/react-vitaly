@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
-import { useCart } from "@/redux/hooks/use-cart";
+import { useSelector } from "react-redux";
+import { selectItemIds } from "@/redux/entities/cart/cart-slice";
 
 import { CartItem } from "../cart-item/cart-item";
 import { List } from "../list/list";
@@ -8,7 +9,7 @@ import { List } from "../list/list";
 import { AuthContext } from "../auth-context/auth-context";
 
 export const Cart = () => {
-  const { itemIds: ids } = useCart();
+  const ids = useSelector(selectItemIds);
   const { auth } = useContext(AuthContext);
 
   if (!auth) {
