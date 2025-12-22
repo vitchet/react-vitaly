@@ -7,10 +7,12 @@ import { selectRestaurantById } from "@/redux/entities/restaurant/restaurant-sli
 import { DishList } from "../dish-list/dish-list";
 import { ReviewList } from "../review-list/review-list";
 import { ReviewForm } from "../review-form/review-form";
+import { useParams } from "react-router";
 
-export const RestaurantView = ({ id }) => {
+export const RestaurantView = () => {
+  const { restaurantId } = useParams();
   const { name, menu, reviews } = useSelector((state) =>
-    selectRestaurantById(state, id)
+    selectRestaurantById(state, restaurantId)
   );
 
   return (

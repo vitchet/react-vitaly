@@ -1,0 +1,15 @@
+@use "@/css/colors";
+
+.navLink {
+  display: block;
+  background-color: colors.$button-bg;
+  padding: 0.25rem 0.5rem;
+  color: inherit;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navLink:hover {
+  background-color: colors.$button-bg-hover;
+}

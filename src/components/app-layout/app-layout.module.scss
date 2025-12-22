@@ -2,10 +2,11 @@
 @use "../../css/colors";
 
 .layout {
-  @include common.flex-box(column, center);
+  @include common.flex-box(column);
   margin: 0 auto;
   padding: 0 2rem;
   width: 960px;
+  min-height: 100vh;
   background-color: colors.$main-bg;
   color: colors.$text;
 }
@@ -13,5 +14,4 @@
 .main {
   @include common.flex-box(column, center);
   gap: 1rem;
-  min-height: 100%;
 }
