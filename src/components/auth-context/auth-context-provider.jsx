@@ -1,6 +1,10 @@
+import { useDispatch } from "react-redux";
 import { useReducer } from "react";
 
-import User from "../../classes/User";
+import { clear } from "@/redux/entities/cart/cart-slice";
+
+import Auth from "@/classes/Auth";
+import { AuthContext } from "./auth-context";
 
 const Action = Object.freeze({
   SIGN_IN: Symbol("si"),
@@ -10,7 +14,7 @@ const Action = Object.freeze({
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case Action.SIGN_IN: {
-      return new User(payload);
+      return new Auth(payload);
     }
     case Action.SIGN_OUT:
       return null;
@@ -19,8 +23,9 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-export const useUser = () => {
-  const [user, dispatch] = useReducer(reducer, null);
+export const AuthContextProvider = ({ children }) => {
+  const dispatchSliceAction = useDispatch();
+  const [auth, dispatch] = useReducer(reducer, null);
 
   const signIn = (userName) => {
     if (userName?.length) {
@@ -30,11 +35,10 @@ export const useUser = () => {
 
   const signOut = () => {
     dispatch({ type: Action.SIGN_OUT });
+    dispatchSliceAction(clear());
   };
 
-  return {
-    user,
-    signIn,
-    signOut,
-  };
+  return (
+    <AuthContext value={{ auth, signIn, signOut }}>{children}</AuthContext>
+  );
 };

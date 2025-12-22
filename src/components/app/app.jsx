@@ -1,22 +1,25 @@
-import { useEffect, useState } from "react";
-
 import "../../css/global.scss";
 
+import { Provider } from "react-redux";
+
 import { restaurants } from "../../constants/mock";
+import { store } from "../../redux/store";
 
 import { AppLayout } from "../app-layout/app-layout";
 import { RestaurantPage } from "../restaurant-page/restaurant-page";
 import { ThemeContextProvider } from "../theme-context/theme-context-provider";
-import { UserContextProvider } from "../user-context/user-context-provider";
+import { AuthContextProvider } from "../auth-context/auth-context-provider";
 
 export const App = () => {
   return (
-    <ThemeContextProvider>
-      <UserContextProvider>
-        <AppLayout>
-          <RestaurantPage restaurants={restaurants} />
-        </AppLayout>
-      </UserContextProvider>
-    </ThemeContextProvider>
+    <Provider store={store}>
+      <ThemeContextProvider>
+        <AuthContextProvider>
+          <AppLayout>
+            <RestaurantPage restaurants={restaurants} />
+          </AppLayout>
+        </AuthContextProvider>
+      </ThemeContextProvider>
+    </Provider>
   );
 };

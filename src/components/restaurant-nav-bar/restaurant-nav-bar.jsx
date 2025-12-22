@@ -1,25 +1,16 @@
 import styles from "./restaurant-nav-bar.module.scss";
 
-import { Button, ButtonSize } from "../button/button";
+import { RestaurantNavLink } from "../restaurant-nav-link/restaurant-nav-link";
 
-export const RestaurantNavBar = ({ restaurants, onSelect }) => {
+export const RestaurantNavBar = ({ ids, onClick }) => {
   return (
     <nav>
       <ul className={styles.restaurantNavBar}>
-        {restaurants.map((restaurant) => {
-          const { id, name } = restaurant;
-          return (
-            <li className={styles.restaurantNavElement} key={id}>
-              <Button
-                onClick={() => onSelect(restaurant)}
-                size={ButtonSize.LARGE}
-                navButton
-              >
-                {name}
-              </Button>
-            </li>
-          );
-        })}
+        {ids.map((id) => (
+          <li key={id} className={styles.restaurantNavElement}>
+            <RestaurantNavLink id={id} onClick={onClick} />
+          </li>
+        ))}
       </ul>
     </nav>
   );

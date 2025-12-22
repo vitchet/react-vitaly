@@ -1,20 +1,29 @@
 import styles from "./restaurant-page.module.scss";
 
-import { RestaurantView } from "../restaurant-view/restaurant-view";
-import { RestaurantNavBar } from "../restaurant-nav-bar/restaurant-nav-bar";
+import { useSelector } from "react-redux";
 
 import { useSelection } from "./use-selection";
+import { selectRestaurantIds } from "@/redux/entities/restaurant/restaurant-slice";
 
-export const RestaurantPage = ({ restaurants }) => {
-  const { selectedItem, setSelectedItem } = useSelection(restaurants);
+import { RestaurantView } from "../restaurant-view/restaurant-view";
+import { RestaurantNavBar } from "../restaurant-nav-bar/restaurant-nav-bar";
+import { Cart } from "../cart/cart";
+
+export const RestaurantPage = () => {
+  const restaurantIds = useSelector(selectRestaurantIds);
+  const {
+    selectedItem: shownRestaurantId,
+    setSelectedItem: setShownRestaurantId,
+  } = useSelection(restaurantIds);
 
   return (
     <div className={styles.restaurantPage}>
       <RestaurantNavBar
-        restaurants={restaurants}
-        onSelect={(restaurant) => setSelectedItem(restaurant)}
+        ids={restaurantIds}
+        onClick={(id) => setShownRestaurantId(id)}
       />
-      <RestaurantView restaurant={selectedItem} />
+      <RestaurantView id={shownRestaurantId} />
+      <Cart />
     </div>
   );
 };

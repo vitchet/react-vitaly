@@ -1,11 +1,17 @@
 import styles from "./restaurant-view.module.scss";
 
+import { useSelector } from "react-redux";
+
+import { selectRestaurantById } from "@/redux/entities/restaurant/restaurant-slice";
+
 import { DishList } from "../dish-list/dish-list";
 import { ReviewList } from "../review-list/review-list";
 import { ReviewForm } from "../review-form/review-form";
 
-export const RestaurantView = ({ restaurant }) => {
-  const { name, menu, reviews } = restaurant;
+export const RestaurantView = ({ id }) => {
+  const { name, menu, reviews } = useSelector((state) =>
+    selectRestaurantById(state, id)
+  );
 
   return (
     <article className={styles.restaurantView}>
@@ -18,7 +24,7 @@ export const RestaurantView = ({ restaurant }) => {
             <h3 className={styles.subTitle}>Menu</h3>
           </header>
           <main>
-            <DishList dishes={menu} />
+            <DishList ids={menu} />
           </main>
         </section>
         <section className={styles.section}>
@@ -26,7 +32,7 @@ export const RestaurantView = ({ restaurant }) => {
             <h3 className={styles.subTitle}>Reviews</h3>
           </header>
           <main>
-            <ReviewList reviews={reviews} />
+            <ReviewList ids={reviews} />
             <ReviewForm />
           </main>
         </section>
