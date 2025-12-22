@@ -4,10 +4,9 @@ import { useSelector } from "react-redux";
 
 import { selectRestaurantById } from "@/redux/entities/restaurant/restaurant-slice";
 
-import { DishList } from "../dish-list/dish-list";
-import { ReviewList } from "../review-list/review-list";
-import { ReviewForm } from "../review-form/review-form";
 import { useParams } from "react-router";
+import { ReviewView } from "../review-view/review-view";
+import { MenuView } from "../menu-view/menu-view";
 
 export const RestaurantView = () => {
   const { restaurantId } = useParams();
@@ -21,23 +20,8 @@ export const RestaurantView = () => {
         <h2 className={styles.title}>{name}</h2>
       </header>
       <main className={styles.main}>
-        <section className={styles.section}>
-          <header>
-            <h3 className={styles.subTitle}>Menu</h3>
-          </header>
-          <main>
-            <DishList ids={menu} />
-          </main>
-        </section>
-        <section className={styles.section}>
-          <header>
-            <h3 className={styles.subTitle}>Reviews</h3>
-          </header>
-          <main>
-            <ReviewList ids={reviews} />
-            <ReviewForm />
-          </main>
-        </section>
+        <MenuView ids={menu} />
+        <ReviewView ids={reviews} />
       </main>
     </article>
   );
