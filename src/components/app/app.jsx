@@ -1,6 +1,8 @@
 import "../../css/global.scss";
 
 import { Provider } from "react-redux";
+import { BrowserRouter, Route } from "react-router";
+import { Routes } from "react-router";
 
 import { restaurants } from "../../constants/mock";
 import { store } from "../../redux/store";
@@ -15,9 +17,18 @@ export const App = () => {
     <Provider store={store}>
       <ThemeContextProvider>
         <AuthContextProvider>
-          <AppLayout>
-            <RestaurantPage restaurants={restaurants} />
-          </AppLayout>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <AppLayout>
+                    <RestaurantPage restaurants={restaurants} />
+                  </AppLayout>
+                }
+              ></Route>
+            </Routes>
+          </BrowserRouter>
         </AuthContextProvider>
       </ThemeContextProvider>
     </Provider>
