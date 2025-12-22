@@ -1,16 +1,16 @@
 import styles from "./restaurant-view.module.scss";
 
+import { useParams } from "react-router";
+import { Outlet } from "react-router";
+
 import { useSelector } from "react-redux";
 
 import { selectRestaurantById } from "@/redux/entities/restaurant/restaurant-slice";
-
-import { useParams } from "react-router";
-import { ReviewView } from "../review-view/review-view";
-import { MenuView } from "../menu-view/menu-view";
+import { StyledNavLink } from "../styled-nav-link/styled-nav-link";
 
 export const RestaurantView = () => {
   const { restaurantId } = useParams();
-  const { name, menu, reviews } = useSelector((state) =>
+  const { name } = useSelector((state) =>
     selectRestaurantById(state, restaurantId)
   );
 
@@ -20,8 +20,15 @@ export const RestaurantView = () => {
         <h2 className={styles.title}>{name}</h2>
       </header>
       <main className={styles.main}>
-        <MenuView ids={menu} />
-        <ReviewView ids={reviews} />
+        <nav className={styles.nav}>
+          <StyledNavLink to="menu" className={styles.navLink}>
+            Menu
+          </StyledNavLink>
+          <StyledNavLink to="reviews" className={styles.navLink}>
+            Reviews
+          </StyledNavLink>
+        </nav>
+        <Outlet />
       </main>
     </article>
   );

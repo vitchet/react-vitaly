@@ -12,3 +12,13 @@
   @include common.flex-box(column);
   gap: 1rem;
 }
+
+.nav {
+  @include common.flex-box(row, space-between);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.navLink {
+  font-size: 2rem;
+}

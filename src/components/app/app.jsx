@@ -1,18 +1,18 @@
 import "../../css/global.scss";
 
 import { Provider } from "react-redux";
-import { BrowserRouter, Route } from "react-router";
-import { Routes } from "react-router";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router";
 
-import { restaurants } from "../../constants/mock";
 import { store } from "../../redux/store";
 
 import { AppLayout } from "../app-layout/app-layout";
-import { RestaurantPage } from "../restaurant-page/restaurant-page";
-import { ThemeContextProvider } from "../theme-context/theme-context-provider";
 import { AuthContextProvider } from "../auth-context/auth-context-provider";
 import { HomePage } from "@/components/home-page/home-page";
+import { MenuView } from "../menu-view/menu-view";
+import { RestaurantPage } from "../restaurant-page/restaurant-page";
 import { RestaurantView } from "../restaurant-view/restaurant-view";
+import { ReviewView } from "../review-view/review-view";
+import { ThemeContextProvider } from "../theme-context/theme-context-provider";
 
 export const App = () => {
   return (
@@ -24,7 +24,11 @@ export const App = () => {
               <Route element={<AppLayout />}>
                 <Route index element={<HomePage />} />
                 <Route path="restaurant" element={<RestaurantPage />}>
-                  <Route path=":restaurantId" element={<RestaurantView />} />
+                  <Route path=":restaurantId" element={<RestaurantView />}>
+                    <Route index element={<Navigate to="menu" />} />
+                    <Route path="menu" element={<MenuView />} />
+                    <Route path="reviews" element={<ReviewView />} />
+                  </Route>
                 </Route>
               </Route>
             </Routes>
