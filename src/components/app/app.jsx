@@ -1,6 +1,6 @@
 import "../../css/global.scss";
 
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router";
 
 import { store } from "../../redux/store";
@@ -27,7 +27,7 @@ export const App = () => {
                 <Route index element={<HomePage />} />
                 <Route path="restaurant" element={<RestaurantPage />}>
                   <Route path=":restaurantId" element={<RestaurantView />}>
-                    <Route index element={<Navigate to="menu" />} />
+                    <Route index element={<Navigate to="menu" replace />} />
                     <Route path="menu" element={<MenuView />} />
                     <Route path="reviews" element={<ReviewView />} />
                   </Route>

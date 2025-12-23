@@ -1,9 +1,6 @@
 import styles from "./home-page.module.scss";
 
 import { use } from "react";
-import { useSelector } from "react-redux";
-
-import { selectRestaurantIds } from "@/redux/entities/restaurant/restaurant-slice";
 
 import { AuthContext } from "@/components/auth-context/auth-context";
 import { Cart } from "../cart/cart";
@@ -11,7 +8,6 @@ import { StyledLink } from "../styled-link/styled-link";
 
 export const HomePage = () => {
   const { auth } = use(AuthContext);
-  const firstRestaurantId = useSelector(selectRestaurantIds)[0];
 
   let welcomeString = "";
   if (auth) {
@@ -28,19 +24,9 @@ export const HomePage = () => {
       </header>
       <main className={styles.main}>
         <section>
-          {firstRestaurantId ? (
-            <StyledLink
-              to={`/restaurant/${firstRestaurantId}`}
-              className={styles.restaurantLink}
-            >
-              Go to restaurants
-            </StyledLink>
-          ) : (
-            <p>
-              We're very sorry, there are no restaurants available at the
-              moment. Visit this site later, please.
-            </p>
-          )}
+          <StyledLink to="/restaurant" className={styles.restaurantLink}>
+            Go to restaurants
+          </StyledLink>
         </section>
         <section>
           <Cart />
