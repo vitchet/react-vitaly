@@ -15,7 +15,7 @@ export const RestaurantView = () => {
   );
 
   return (
-    <article className={styles.restaurantView}>
+    <section className={styles.restaurantView}>
       <header>
         <h2 className={styles.title}>{name}</h2>
       </header>
@@ -30,6 +30,6 @@ export const RestaurantView = () => {
         </nav>
         <Outlet />
       </main>
-    </article>
+    </section>
   );
 };

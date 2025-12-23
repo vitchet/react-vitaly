@@ -1,26 +1,32 @@
 import styles from "./dish.module.scss";
 
+import { use } from "react";
 import { useSelector } from "react-redux";
 
 import { selectDishById } from "@/redux/entities/dish/dish-slice";
 
-import { DishCounter } from "../dish-counter/dish-counter";
+import { AuthContext } from "../auth-context/auth-context";
+import { StyledLink } from "../styled-link/styled-link";
 
 export const Dish = ({ id }) => {
   const { name, price, ingredients } = useSelector((state) =>
     selectDishById(state, id)
   );
+  const { auth } = use(AuthContext);
+
   return (
-    <main className={styles.dish}>
-      <section>
+    <div className={styles.dish}>
+      <div>
         <p className={styles.title}>
           <b>{name}</b> ${price}
         </p>
         <p className={styles.ingredientList}>{ingredients.join(", ")}</p>
-      </section>
-      <section className={styles.counter}>
-        <DishCounter id={id} />
-      </section>
-    </main>
+      </div>
+      {auth && (
+        <StyledLink to={`/dish/${id}`} className={styles.buyLink}>
+          Buy
+        </StyledLink>
+      )}
+    </div>
   );
 };

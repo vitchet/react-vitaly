@@ -5,3 +5,8 @@
   gap: 1rem;
   padding-bottom: 1rem;
 }
+
+.header {
+  @include common.flex-box(column, start);
+  gap: 1rem;
+}

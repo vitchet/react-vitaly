@@ -1,13 +1,21 @@
 import styles from "./restaurant-page.module.scss";
 
-import { RestaurantNavBar } from "../restaurant-nav-bar/restaurant-nav-bar";
 import { Outlet } from "react-router";
+
+import { RestaurantNavBar } from "../restaurant-nav-bar/restaurant-nav-bar";
+import { HomeLink } from "../home-link/home-link";
 
 export const RestaurantPage = () => {
   return (
-    <div className={styles.restaurantPage}>
-      <RestaurantNavBar />
-      <Outlet />
-    </div>
+    <article className={styles.restaurantPage}>
+      <header className={styles.header}>
+        <HomeLink />
+        <RestaurantNavBar />
+      </header>
+
+      <main>
+        <Outlet />
+      </main>
+    </article>
   );
 };

@@ -7,6 +7,7 @@ import { store } from "../../redux/store";
 
 import { AppLayout } from "../app-layout/app-layout";
 import { AuthContextProvider } from "../auth-context/auth-context-provider";
+import { DishPage } from "../dish-page/dish-page";
 import { HomePage } from "@/components/home-page/home-page";
 import { MenuView } from "../menu-view/menu-view";
 import { RestaurantPage } from "../restaurant-page/restaurant-page";
@@ -30,6 +31,7 @@ export const App = () => {
                     <Route path="reviews" element={<ReviewView />} />
                   </Route>
                 </Route>
+                <Route path="dish/:dishId" element={<DishPage />} />
               </Route>
             </Routes>
           </BrowserRouter>
