@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 
 import { selectDishById } from "@/redux/entities/dish/dish-slice";
 
+import { DishCounter } from "../dish-counter/dish-counter";
 import { HomeLink } from "../home-link/home-link";
 
 export const DishPage = () => {
@@ -14,18 +15,20 @@ export const DishPage = () => {
   );
 
   return (
-    <article>
-      <header>
+    <article className={styles.page}>
+      <header className={styles.header}>
         <HomeLink />
-        <h2>{name}</h2>
+        <h2 className={styles.title}>{name}</h2>
       </header>
       <main>
-        <h3>Ingredients:</h3>
-        <ol>
+        <h3 className={styles.subTitle}>Ingredients:</h3>
+        <ol className={styles.ingredientList}>
           {ingredients.map((ingr) => (
             <li key={ingr}>{ingr}</li>
           ))}
         </ol>
+        <br />
+        <DishCounter id={id} />
       </main>
     </article>
   );
