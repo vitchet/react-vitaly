@@ -31,7 +31,14 @@ export const RestaurantPage = () => {
       </header>
 
       <main>
-        <Outlet />
+        {firstRestaurantId ? (
+          <Outlet />
+        ) : (
+          <p>
+            Sorry, there are no available restaurants at the moment. Please,
+            visit us later.
+          </p>
+        )}
       </main>
     </article>
   );
