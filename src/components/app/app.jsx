@@ -12,6 +12,7 @@ import { HomePage } from "@/components/home-page/home-page";
 import { MenuView } from "../menu-view/menu-view";
 import { RestaurantPage } from "../restaurant-page/restaurant-page";
 import { RestaurantView } from "../restaurant-view/restaurant-view";
+import { ReviewPage } from "../review-page/review-page";
 import { ReviewView } from "../review-view/review-view";
 import { ThemeContextProvider } from "../theme-context/theme-context-provider";
 
@@ -32,6 +33,7 @@ export const App = () => {
                   </Route>
                 </Route>
                 <Route path="dish/:dishId" element={<DishPage />} />
+                <Route path="review/:reviewId" element={<ReviewPage />} />
               </Route>
             </Routes>
           </BrowserRouter>

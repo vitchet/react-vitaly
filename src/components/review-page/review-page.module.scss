@@ -1,0 +1,20 @@
+@use "@/css/common";
+
+.main {
+  @include common.flex-box(column);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.author {
+  font-size: 3rem;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.rating {
+  font-size: 2rem;
+}
