@@ -6,7 +6,12 @@ import { NavLink } from "react-router";
 
 export const StyledNavLink = ({ to, children, className }) => {
   return (
-    <NavLink to={to} className={classNames(styles.navLink, className)}>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        classNames(styles.navLink, className, { [styles.active]: isActive })
+      }
+    >
       {children}
     </NavLink>
   );

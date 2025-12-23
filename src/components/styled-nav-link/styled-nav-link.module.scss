@@ -13,3 +13,9 @@
 .navLink:hover {
   background-color: colors.$button-bg-hover;
 }
+
+.active {
+  background-color: colors.$button-bg-hover;
+  pointer-events: none;
+  cursor: not-allowed;
+}
