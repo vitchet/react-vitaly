@@ -1,0 +1,14 @@
+@use "../../css/common.scss";
+
+.title {
+  font-size: 3rem;
+  padding-left: 0.5rem;
+}
+
+.main {
+  $gap: 0.5rem;
+
+  @include common.flex-box(column);
+  gap: $gap;
+  margin-top: $gap;
+}

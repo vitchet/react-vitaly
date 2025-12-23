@@ -1,42 +1,35 @@
 import styles from "./restaurant-view.module.scss";
 
+import { useParams } from "react-router";
+import { Outlet } from "react-router";
+
 import { useSelector } from "react-redux";
 
 import { selectRestaurantById } from "@/redux/entities/restaurant/restaurant-slice";
+import { StyledNavLink } from "../styled-nav-link/styled-nav-link";
 
-import { DishList } from "../dish-list/dish-list";
-import { ReviewList } from "../review-list/review-list";
-import { ReviewForm } from "../review-form/review-form";
-
-export const RestaurantView = ({ id }) => {
-  const { name, menu, reviews } = useSelector((state) =>
-    selectRestaurantById(state, id)
+export const RestaurantView = () => {
+  const { restaurantId } = useParams();
+  const { name } = useSelector((state) =>
+    selectRestaurantById(state, restaurantId)
   );
 
   return (
-    <article className={styles.restaurantView}>
+    <section className={styles.restaurantView}>
       <header>
         <h2 className={styles.title}>{name}</h2>
       </header>
       <main className={styles.main}>
-        <section className={styles.section}>
-          <header>
-            <h3 className={styles.subTitle}>Menu</h3>
-          </header>
-          <main>
-            <DishList ids={menu} />
-          </main>
-        </section>
-        <section className={styles.section}>
-          <header>
-            <h3 className={styles.subTitle}>Reviews</h3>
-          </header>
-          <main>
-            <ReviewList ids={reviews} />
-            <ReviewForm />
-          </main>
-        </section>
+        <nav className={styles.nav}>
+          <StyledNavLink to="menu" className={styles.navLink}>
+            Menu
+          </StyledNavLink>
+          <StyledNavLink to="reviews" className={styles.navLink}>
+            Reviews
+          </StyledNavLink>
+        </nav>
+        <Outlet />
       </main>
-    </article>
+    </section>
   );
 };

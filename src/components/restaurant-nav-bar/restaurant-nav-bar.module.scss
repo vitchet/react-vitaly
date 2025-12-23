@@ -1,4 +1,4 @@
-@use "../../css/common.scss";
+@use "../../css/common";
 
 .restaurantNavBar {
   @include common.flex-box(row, space-evenly);

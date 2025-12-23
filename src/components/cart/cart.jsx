@@ -1,3 +1,5 @@
+import styles from "./cart.module.scss";
+
 import { useContext } from "react";
 
 import { useSelector } from "react-redux";
@@ -16,13 +18,18 @@ export const Cart = () => {
     return null;
   }
 
-  if (ids.length === 0) {
-    return <p>Your cart is empty yet...</p>;
-  }
-
   return (
-    <>
-      <List ids={ids} component={(id) => <CartItem id={id} />}></List>
-    </>
+    <section>
+      <header>
+        <h3 className={styles.title}>Cart</h3>
+      </header>
+      <main>
+        {ids.length ? (
+          <List ids={ids} component={(id) => <CartItem id={id} />}></List>
+        ) : (
+          <p>Your cart is empty yet...</p>
+        )}
+      </main>
+    </section>
   );
 };

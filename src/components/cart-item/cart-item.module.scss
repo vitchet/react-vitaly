@@ -1,0 +1,12 @@
+@use "@/css/common";
+
+.cartItem {
+  @include common.flex-box(row, space-between, center);
+  padding: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.itemLink {
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}

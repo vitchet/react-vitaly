@@ -1,3 +1,9 @@
+@use "../../css/common.scss";
+
+.review {
+  @include common.flex-box(row, space-between, center);
+}
+
 .userName {
   font-size: 1.25rem;
 }
@@ -5,4 +11,10 @@
 .text {
   font-style: italic;
   font-size: 1.15rem;
+}
+
+.showLink {
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }

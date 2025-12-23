@@ -4,23 +4,25 @@ import { useSelector } from "react-redux";
 
 import { selectDishById } from "@/redux/entities/dish/dish-slice";
 
-import { DishCounter } from "../dish-counter/dish-counter";
+import { StyledLink } from "../styled-link/styled-link";
 
 export const Dish = ({ id }) => {
   const { name, price, ingredients } = useSelector((state) =>
     selectDishById(state, id)
   );
+
   return (
-    <main className={styles.dish}>
-      <section>
+    <div className={styles.dish}>
+      <div>
         <p className={styles.title}>
           <b>{name}</b> ${price}
         </p>
         <p className={styles.ingredientList}>{ingredients.join(", ")}</p>
-      </section>
-      <section className={styles.counter}>
-        <DishCounter id={id} />
-      </section>
-    </main>
+      </div>
+
+      <StyledLink to={`/dish/${id}`} className={styles.buyLink}>
+        Buy
+      </StyledLink>
+    </div>
   );
 };
